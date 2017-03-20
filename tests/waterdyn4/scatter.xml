@@ -1,0 +1,44 @@
+<root>
+	<sample>
+		<structure>
+			<file>sample.pdb</file>
+			<format>pdb</format>
+		</structure>			
+
+		<framesets>
+			<frameset>
+				<file>sample.dcd</file>
+				<format>dcd</format>
+			</frameset>
+		</framesets>
+	</sample>
+	<scattering>
+	    <type>self</type>		
+	    <dsp>
+		    <type>autocorrelate</type>   
+		    <method>fftw</method>
+	    </dsp>
+
+	    <vectors>
+	        <type>single</type>
+	        <single>
+	            <x>1.0</x>
+	            <y>0.0</y>
+	            <z>0.0</z>					
+	        </single> 
+	    </vectors>
+	    <average>
+	        <orientation>
+	            <type>vectors</type>
+				
+	            <vectors>					
+		            <type>sphere</type>
+		            <algorithm>boost_uniform_on_sphere</algorithm>
+		            <resolution>100</resolution>
+	            </vectors>
+			
+	        </orientation>
+	    </average>
+
+	</scattering>
+</root>

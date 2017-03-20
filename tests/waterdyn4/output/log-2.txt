@@ -1,0 +1,225 @@
+       0.Info>>This software is being developed by Benjamin Lindner.                    
+       0.Info>>For help, suggestions or correspondense use:                             
+       0.Info>>ben@benlabs.net, Benjamin Lindner (Main Developer, Impl. & Maintenance)  
+       0.Info>>franc@cmm.ki.si, Franci Merzel (Methodology)                             
+       0.Info>>For publications include the following references:                       
+       0.Info>>.........................................................................
+       0.Info>>1. Sassena - Scattering Calculations on Parallel Computers               
+       0.Info>>   to be published                                                       
+       0.Info>>.........................................................................
+       0.Info>>Version Information: 1.2.1                                       
+       0.Info>>                                                                 
+       0.Info>>.................................................................
+       0.Info>>......................D.E.S.C.R.I.P.T.I.O.N......................
+       0.Info>>.................................................................
+       0.Info>>This binary computes the scattering intensities directly from    
+       0.Info>>a molecular dynamics trajectory.                                 
+       0.Info>>.................................................................
+       0.Info>>.................................................................
+       0.Info>>...................I.N.I.T.I.A.L.I.Z.A.T.I.O.N...................
+       0.Info>>.................................................................
+       0.Info>>No configuration file specified. Will use default                
+       0.Info>>Looking for configuration file: scatter.xml                      
+       0.Info>>Reading parameters from XML file: scatter.xml                    
+       0.Info>>Added frames from /Users/benlin/tmp/test-waterdyn3/sample.dcd using format: dcd
+       0.Info>>Options: first=0, last=0, lastset=0, stride=1                    
+       0.Info>>stager.target=system                                             
+       0.Info>>scattering.type=self                                             
+       0.Info>>scattering.dsp.type=autocorrelate                                
+       0.Info>>scattering.dsp.method=fftw                                       
+       0.Info>>scattering.average.orientation.type=vectors                      
+       0.Info>>scattering.average.orientation.vectors.type=sphere               
+       0.Info>>scattering.average.orientation.vectors.algorithm=boost_uniform_on_sphere
+       0.Info>>scattering.average.orientation.vectors.resolution=100            
+       0.Info>>Generating orientations for orientational averaging using sphere,boost_uniform_on_sphere
+       0.Info>>Initialized orientational averaging with 100 vectors.            
+       0.Info>>scattering.signal.file=signal.h5                                 
+       0.Info>>scattering.signal.fqt=1                                          
+       0.Info>>scattering.signal.fq0=1                                          
+       0.Info>>scattering.signal.fq=1                                           
+       0.Info>>scattering.signal.fq2=1                                          
+       0.Info>>Analyzing command line for parameter overwrites                  
+       0.Info>>Reading database...                                              
+       0.Info>>Checking database...                                             
+       0.Info>>Testing mapping between PDB names and atom labels                
+       0.Info>>Testing database completeness for referenced atom labels         
+       0.Info>>Check succeeded. Database seems OK.                              
+       0.Info>>Initializing sample...                                           
+       0.Info>>Reading structure from file: /Users/benlin/tmp/test-waterdyn3/sample.pdb
+       0.Info>>Done. Atoms read: 384                                            
+       0.Info>>Reading frames from: /Users/benlin/tmp/test-waterdyn3/sample.dcd 
+       0.Info>>Found 10001 frames                                               
+       0.Info>>Total number of coordinate sets found: 10001                     
+       0.Info>>Set background scattering length density set to 0                
+       0.Info>>Exchanging sample, database & params information with compute nodes... 
+       0.Info>>params...                                                        
+       0.Info>>database...                                                      
+       0.Info>>sample...                                                        
+       0.Info>>.................................................................
+       0.Info>>......................C.O.M.P.U.T.A.T.I.O.N......................
+       0.Info>>.................................................................
+       0.Info>>Setting up services...                                           
+       0.Info>>Initializing data file service...                                
+       0.Info>>Initializing monitor service...                                  
+       0.Info>>Starting data file service...                                    
+       0.Info>>Starting monitor service...                                      
+       0.Info>>Services setup and running...                                    
+       0.Info>>Checking signal.h5 for old results.                              
+       0.Info>>Broadcasting service information                                 
+       0.Info>>Server host name    : Benjamin-Lindners-MacBook-Pro.local        
+       0.Info>>FileService Port    : 64822                                      
+       0.Info>>MonitorService Port : 64823                                      
+       0.Info>>Setting up parallel environment...                               
+       0.Info>>Searching for decomposition plan:                                
+       0.Info>>nodes    = 2                                                     
+       0.Info>>qvectors = 1                                                     
+       0.Info>>frames   = 10001                                                 
+       0.Info>>atoms   = 384                                                    
+       0.Info>>Self interference scattering detected. Applying atom decomposition.
+       0.Info>>Automatic decomposition. Searching for best utilization.         
+       0.Info>>Final decomposition parameters:                                  
+       0.Info>>NN                : 2                                            
+       0.Info>>NQ                : 1                                            
+       0.Info>>NAF               : 384                                          
+       0.Info>>NP                : 1                                            
+       0.Info>>NNpP              : 2                                            
+       0.Info>>NAFcycles         : 192                                          
+       0.Info>>NQcycles          : 1                                            
+       0.Info>>CompEl (WASTE/USE): 0/384                                        
+       0.Info>>utilization(1=best)    : 1                                       
+       0.Info>>Initializing Scatter Device, Vectors (self)                      
+       0.Info>>Starting scattering...                                           
+       0.Info>>Staging data...                                                  
+       0.Info>>Forcing stager.mode=atoms                                        
+       0.Info>>Staging first partition.                                         
+       0.Info>>Initializing buffer size to: 5001                                
+       0.Info>>Staging remaining partitions.                                    
+       0.Info>>Target initialized.                                              
+       0.Info>>Target produces a background scattering length density of 2.6006709664859775
+       0.Info>>Starting computation...                                          
+       0.Info>>Orientational averaging includes 100 vectors                     
+       0.Info>>Setting progress sampling factor for monitoring to 1             
+       0.Info>>Progress: 0.253%, ETOTAL: 426.15013608247426 s, ETA: 425.07366308247424 s
+       0.Info>>Progress: 0.505%, ETOTAL: 222.74533608247421 s, ETA: 221.62000808247421 s
+       0.Info>>Progress: 1.255%, ETOTAL: 324.45904730290465 s, ETA: 320.38641030290466 s
+       0.Info>>Progress: 2.005%, ETOTAL: 205.68920103896104 s, ETA: 201.56470403896105 s
+       0.Info>>Progress: 3.005%, ETOTAL: 205.14640970537261 s, ETA: 198.98133270537261 s
+       0.Info>>Progress: 4.005%, ETOTAL: 209.29860078023407 s, ETA: 200.91575578023406 s
+       0.Info>>Progress: 5.005%, ETOTAL: 234.47081956295523 s, ETA: 222.73506656295524 s
+       0.Info>>Progress: 10.005%, ETOTAL: 282.30023862571568 s, ETA: 254.0555116257157 s
+       0.Info>>Progress: 20.005%, ETOTAL: 304.52206237958859 s, ETA: 243.60178937958861 s
+       0.Info>>Progress: 30.005%, ETOTAL: 310.75515611872936 s, ETA: 217.51242411872937 s
+       0.Info>>Progress: 40.005%, ETOTAL: 287.29318953261298 s, ETA: 172.36095053261297 s
+       0.Info>>Progress: 50.005%, ETOTAL: 289.71127774190211 s, ETA: 144.84054974190201 s
+       0.Info>>Progress: 60.005%, ETOTAL: 308.75553830396677 s, ETA: 123.48613430396671 s
+       0.Info>>Progress: 70.005%, ETOTAL: 310.29763523547359 s, ETA: 93.073129235473573 s
+       0.Info>>Progress: 80.005%, ETOTAL: 310.88974978191521 s, ETA: 62.161757781915242 s
+       0.Info>>Progress: 90.005%, ETOTAL: 314.59331881256867 s, ETA: 31.442946812568721 s
+       0.Info>>Progress: 95.005%, ETOTAL: 316.64357594430129 s, ETA: 15.815686944301319 s
+       0.Info>>Progress: 96.005%, ETOTAL: 316.9969747301036 s, ETA: 12.663368730103628 s
+       0.Info>>Progress: 97.005%, ETOTAL: 316.38236263087248 s, ETA: 9.4749926308725207 s
+       0.Info>>Progress: 98.005%, ETOTAL: 315.33371160121169 s, ETA: 6.2902506012117101 s
+       0.Info>>Progress: 99.005%, ETOTAL: 316.0994166552685 s, ETA: 3.1445306552685679 s
+       0.Info>>Scattering finished...                                           
+       0.Info>>.................................................................
+       0.Info>>.....................R.U.N...A.N.A.L.Y.S.I.S.....................
+       0.Info>>.................................................................
+       0.Info>>Aggregating timing information for performance analysis...       
+       0.Info>>                                                                 
+       0.Info>>                    Performance Analysis                         
+       0.Info>>-----------------------------------------------------------------
+       0.Info>> mean and total runtimes:                                        
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>          measure |    total |       count |     mean |   stddev 
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>   sd:c:b:dspstore| 4.698e+02|        38400| 1.224e-02| 1.050e-02
+       0.Info>>   sd:c:b:progress| 1.511e+00|        38400| 3.936e-05| 8.512e-04
+       0.Info>>    sd:c:b:scatter| 1.539e+02|        38400| 4.008e-03| 7.744e-03
+       0.Info>>        sd:c:block| 6.258e+02|            2| 3.129e+02| 0.000e+00
+       0.Info>>         sd:c:init| 6.000e-04|            2| 3.000e-04| 0.000e+00
+       0.Info>>       sd:c:reduce| 3.450e-04|            2| 1.725e-04| 0.000e+00
+       0.Info>>         sd:c:wait| 4.016e+00|            2| 2.008e+00| 0.000e+00
+       0.Info>>        sd:compute| 6.298e+02|            2| 3.149e+02| 0.000e+00
+       0.Info>>         sd:runner| 6.298e+02|            2| 3.149e+02| 0.000e+00
+       0.Info>>          sd:stage| 1.766e+00|            2| 8.832e-01| 0.000e+00
+       0.Info>> sd:worker:scatter| 3.216e+01|        38400| 8.375e-04| 1.417e-03
+       0.Info>>    sd:worker:wait| 5.913e+02|        38400| 1.540e-02| 1.328e-02
+       0.Info>>          sd:write| 5.800e-05|            2| 2.900e-05| 0.000e+00
+       0.Info>>           st:fill| 2.890e-04|            2| 1.445e-04| 0.000e+00
+       0.Info>>          st:first| 1.766e+00|            2| 8.828e-01| 0.000e+00
+       0.Info>>           st:load| 1.593e+00|        10001| 1.593e-04| 2.354e-04
+       0.Info>>           st:wait| 6.700e-05|            2| 3.350e-05| 0.000e+00
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>-----------------------------------------------------------------
+       0.Info>> watermarks:                                                     
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>          measure |      min |      max                          
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>   sd:c:b:dspstore| 8.363e-03| 3.691e-01                         
+       0.Info>>   sd:c:b:progress| 3.000e-06| 7.049e-02                         
+       0.Info>>    sd:c:b:scatter| 6.030e-04| 2.163e-01                         
+       0.Info>>        sd:c:block| 3.109e+02| 3.149e+02                         
+       0.Info>>         sd:c:init| 1.980e-04| 4.020e-04                         
+       0.Info>>       sd:c:reduce| 1.570e-04| 1.880e-04                         
+       0.Info>>         sd:c:wait| 3.200e-05| 4.016e+00                         
+       0.Info>>        sd:compute| 3.149e+02| 3.149e+02                         
+       0.Info>>         sd:runner| 3.149e+02| 3.149e+02                         
+       0.Info>>          sd:stage| 8.832e-01| 8.832e-01                         
+       0.Info>> sd:worker:scatter| 5.780e-04| 1.030e-01                         
+       0.Info>>    sd:worker:wait| 1.000e-06| 3.692e-01                         
+       0.Info>>          sd:write| 2.000e-06| 5.600e-05                         
+       0.Info>>           st:fill| 7.300e-05| 2.160e-04                         
+       0.Info>>          st:first| 8.827e-01| 8.828e-01                         
+       0.Info>>           st:load| 1.250e-04| 9.068e-03                         
+       0.Info>>           st:wait| 3.200e-05| 3.500e-05                         
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>                                                                 
+       0.Info>>         Performance Analysis (relative to total time * nodes)   
+       0.Info>>-----------------------------------------------------------------
+       0.Info>> mean and total runtimes:                                        
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>          measure |    total |       count |     mean |   stddev 
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>   sd:c:b:dspstore| 7.424e-01|        38400| 1.933e-05| 4.173e-04
+       0.Info>>   sd:c:b:progress| 2.388e-03|        38400| 6.219e-08| 3.384e-05
+       0.Info>>    sd:c:b:scatter| 2.432e-01|        38400| 6.333e-06| 3.078e-04
+       0.Info>>        sd:c:block| 9.888e-01|            2| 4.944e-01| 0.000e+00
+       0.Info>>         sd:c:init| 9.481e-07|            2| 4.740e-07| 0.000e+00
+       0.Info>>       sd:c:reduce| 5.451e-07|            2| 2.726e-07| 0.000e+00
+       0.Info>>         sd:c:wait| 6.346e-03|            2| 3.173e-03| 0.000e+00
+       0.Info>>        sd:compute| 9.952e-01|            2| 4.976e-01| 0.000e+00
+       0.Info>>         sd:runner| 9.952e-01|            2| 4.976e-01| 0.000e+00
+       0.Info>>          sd:stage| 2.791e-03|            2| 1.395e-03| 0.000e+00
+       0.Info>> sd:worker:scatter| 5.082e-02|        38400| 1.323e-06| 5.634e-05
+       0.Info>>    sd:worker:wait| 9.344e-01|        38400| 2.433e-05| 5.280e-04
+       0.Info>>          sd:write| 9.165e-08|            2| 4.582e-08| 0.000e+00
+       0.Info>>           st:fill| 4.567e-07|            2| 2.283e-07| 0.000e+00
+       0.Info>>          st:first| 2.790e-03|            2| 1.395e-03| 0.000e+00
+       0.Info>>           st:load| 2.517e-03|        10001| 2.517e-07| 9.357e-06
+       0.Info>>           st:wait| 1.059e-07|            2| 5.293e-08| 0.000e+00
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>-----------------------------------------------------------------
+       0.Info>> watermarks:                                                     
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>          measure |      min |      max                          
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>   sd:c:b:dspstore| 1.321e-05| 5.833e-04                         
+       0.Info>>   sd:c:b:progress| 4.740e-09| 1.114e-04                         
+       0.Info>>    sd:c:b:scatter| 9.528e-07| 3.418e-04                         
+       0.Info>>        sd:c:block| 4.912e-01| 4.976e-01                         
+       0.Info>>         sd:c:init| 3.129e-07| 6.352e-07                         
+       0.Info>>       sd:c:reduce| 2.481e-07| 2.971e-07                         
+       0.Info>>         sd:c:wait| 5.056e-08| 6.346e-03                         
+       0.Info>>        sd:compute| 4.976e-01| 4.976e-01                         
+       0.Info>>         sd:runner| 4.976e-01| 4.976e-01                         
+       0.Info>>          sd:stage| 1.395e-03| 1.395e-03                         
+       0.Info>> sd:worker:scatter| 9.133e-07| 1.628e-04                         
+       0.Info>>    sd:worker:wait| 1.580e-09| 5.834e-04                         
+       0.Info>>          sd:write| 3.160e-09| 8.849e-08                         
+       0.Info>>           st:fill| 1.153e-07| 3.413e-07                         
+       0.Info>>          st:first| 1.395e-03| 1.395e-03                         
+       0.Info>>           st:load| 1.975e-07| 1.433e-05                         
+       0.Info>>           st:wait| 5.056e-08| 5.530e-08                         
+       0.Info>>-----------------------------------------------------------------
+       0.Info>>Total runtime (s): 316.43360899999999                            
+       0.Info>>Successfully finished... Have a nice day!                        
