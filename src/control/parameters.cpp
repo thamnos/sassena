@@ -464,7 +464,7 @@ void Params::read_xml(std::string filename) {
   Info::Inst()->write(string("stager.target=") + stager.target);
 
   scattering.type = "all";
-  scattering.background.factor = 0.0;
+  scattering.background.factor.value = 0.0;
 
   scattering.dsp.type = "autocorrelate";
   scattering.dsp.method = "fftw";
@@ -506,12 +506,19 @@ void Params::read_xml(std::string filename) {
     Info::Inst()->write(string("scattering.type=") + scattering.type);
 
     if (xmli.exists("//scattering/background")) {
+      // section to retrieve a hard-coded value of the factor, or a selection for later computation
       if (xmli.exists("//scattering/background/factor")) {
-        scattering.background.factor =
-            xmli.get_value<double>("//scattering/background/factor");
-        Info::Inst()->write(
-            string("scattering.background.factor=") +
-            boost::lexical_cast<string>(scattering.background.factor));
+        //ScatteringBackgroundFactor &factor = scattering.background.factor;
+        if(xmli.exists("//scattering/background/factor/selection")) {
+          scattering.background.factor.selection = xmli.get_value<string>("//scattering/background/factor/selection");
+        }
+        else if(xmli.exists("//scattering/background/factor/value")) {
+          Info::Inst()->write(string("Found scattering/background/factor/value"));
+          scattering.background.factor.value = xmli.get_value<double>("//scattering/background/factor/value");
+          Info::Inst()->write(string("scattering.background.factor.value=") +
+                              boost::lexical_cast<string>(scattering.background.factor.value));
+          scattering.background.factor.selection = "";  // empty selection
+        }
       }
 
       if (xmli.exists("//scattering/background/kappas")) {

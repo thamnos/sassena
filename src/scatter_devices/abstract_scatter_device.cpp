@@ -128,11 +128,15 @@ void AbstractScatterDevice::run() {
 
   if (allcomm_.rank() == 0) {
     scatterfactors.update(CartesianCoor3D(0, 0, 0));
+    double &bl_set = Params::Inst()->scattering.background.factor.value;
+    Info::Inst()->write(string("background scattering length set to ") +
+                        boost::lexical_cast<string>(bl_set));
+    double bl_target = scatterfactors.compute_background(CartesianCoor3D(0, 0, 0));
+    std::string &target = Params::Inst()->stager.target;
     Info::Inst()->write("Target initialized. ");
-    Info::Inst()->write(
-        string("Target produces a background scattering length density of ") +
-        boost::lexical_cast<string>(
-            scatterfactors.compute_background(CartesianCoor3D(0, 0, 0))));
+    Info::Inst()->write(string("Target '") + target +
+      string("' produces a background scattering length density of ") +
+      boost::lexical_cast<string>(bl_target));
   }
 
   // allocate memory for computation now.

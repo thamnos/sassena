@@ -559,6 +559,31 @@ class SampleParameters {
 /**
 Section which stores selection based scaling factors for background correction
 */
+
+class ScatteringBackgroundFactor{
+private:
+  friend class boost::serialization::access;
+  template <class Archive>
+  ///Serialization allows sample transmission via MPI
+  void serialize(Archive& ar, const unsigned int version) {
+    ar& selection;
+    ar& value;
+  }
+public:
+  std::string selection;
+  double value;
+  std::string write_xml(int pad = 0) {
+    std::stringstream ss;
+    if(selection.size()) {
+      ss << std::string(pad, ' ') << "<selection>" << selection << "</selection>"
+         << std::endl;
+    }
+    ss << std::string(pad, ' ') << "<value>" << value << "</value>"
+       << std::endl;
+    return ss.str();
+  }
+};
+
 class ScatteringBackgroundKappaParameters {
  private:
   /////////////////// MPI related
@@ -604,14 +629,17 @@ class ScatteringBackgroundParameters {
 
  public:
   std::string type;
-  double factor;
+  ScatteringBackgroundFactor factor;
 
   std::vector<ScatteringBackgroundKappaParameters> kappas;
   std::string write_xml(int pad = 0) {
     std::stringstream ss;
     ss << std::string(pad, ' ') << "<type>" << type << "</type>" << std::endl;
-    ss << std::string(pad, ' ') << "<factor>" << factor << "</factor>"
-       << std::endl;
+    // write factor section
+    ss << std::string(pad, ' ') << "<factor>" << std::endl;
+    ss << factor.write_xml(pad + 2);
+    ss << std::string(pad, ' ') << "</factor>" << std::endl;
+    // write kappas section
     ss << std::string(pad, ' ') << "<kappas>" << std::endl;
     for (size_t i = 0; i < kappas.size(); ++i) {
       ss << std::string(pad + 1, ' ') << "<kappa>" << std::endl;

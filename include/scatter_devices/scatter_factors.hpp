@@ -50,7 +50,7 @@ class ScatterFactors {
 
   void update(CartesianCoor3D q);
   void update_kappas();
-  double compute_background(CartesianCoor3D q);
+  double compute_background(CartesianCoor3D q, IAtomselection* selection=0);
 
   void set_background(bool status);
 };

@@ -155,7 +155,7 @@ int main(int argc,char* argv[]) {
 	// if something went wrong during initialization, exit now.
     if (!initstatus) return 1;
     
-	if (world.rank()==0) Info::Inst()->write(string("Set background scattering length density set to ")+boost::lexical_cast<string>(Params::Inst()->scattering.background.factor));
+	if (world.rank()==0) Info::Inst()->write(string("Set background scattering length density set to ")+boost::lexical_cast<string>(Params::Inst()->scattering.background.factor.value));
 		
 	//------------------------------------------//
 	//
