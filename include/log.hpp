@@ -1,5 +1,6 @@
 /** \file
-This is a convenience header file which includes all essential header files from the log directory.
+This is a convenience header file which includes all essential header files from
+the log directory.
 
 \author Benjamin Lindner <ben@benlabs.net>
 \version 1.3.0

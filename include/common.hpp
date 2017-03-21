@@ -1,5 +1,6 @@
 /** \file
-The content of this file is included by any other file within the project. Use it to apply application wide modifications.
+The content of this file is included by any other file within the project. Use
+it to apply application wide modifications.
 
 \author Benjamin Lindner <ben@benlabs.net>
 \version 1.3.0
@@ -17,8 +18,8 @@ The content of this file is included by any other file within the project. Use i
 // standard header
 #include <complex>
 #include <cstring>
-#include <sstream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 
 // special library headers
@@ -38,6 +39,5 @@ typedef double coor2_t;
 typedef float coor_t;
 typedef double coor2_t;
 #endif
-
 
 #endif
