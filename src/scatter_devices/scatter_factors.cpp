@@ -49,7 +49,15 @@ void ScatterFactors::update_kappas() {
 }
 
 void ScatterFactors::update(CartesianCoor3D q) {
-  double background_sl = Params::Inst()->scattering.background.factor;
+
+  // Update the background scattering length if a selection was made
+  double &bl = Params::Inst()->scattering.background.factor.value;
+  std::string str_sel = Params::Inst()->scattering.background.factor.selection;
+  if(str_sel.size()){
+    IAtomselection* p_sel = p_sample->atoms.selections[str_sel];
+    bl = this->compute_background(q, p_sel);
+  }
+  double background_sl = Params::Inst()->scattering.background.factor.value;
 
   for (size_t i = 0; i < p_selection->size(); ++i) {
     size_t atomID = p_sample->atoms[(*p_selection)[i]];
@@ -90,16 +98,18 @@ double ScatterFactors::get(size_t atomselectionindex) {
 
 vector<double>& ScatterFactors::get_all() { return factors; }
 
-double ScatterFactors::compute_background(CartesianCoor3D q) {
+double ScatterFactors::compute_background(CartesianCoor3D q, IAtomselection* selection) {
   double efactor_sum = 0;
   double sf_sum = 0;
   double ql = q.length();
-
-  for (size_t i = 0; i < p_selection->size(); ++i) {
-    size_t atomID = p_sample->atoms[(*p_selection)[i]];
+  if(!selection){
+    selection = p_selection;
+  }
+  for (size_t i = 0; i < selection->size(); ++i) {
+    size_t atomID = p_sample->atoms[(*selection)[i]];
     double sf = Database::Inst()->sfactors.get(atomID, ql);
 
-    double k = m_kappas[(*p_selection)[i]];
+    double k = m_kappas[(*selection)[i]];
     double v = Database::Inst()->volumes.get(atomID);
     double efactor = Database::Inst()->exclusionfactors.get(atomID, k * v, ql);
 

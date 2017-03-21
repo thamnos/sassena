@@ -241,12 +241,6 @@ int main(int argc, char* argv[]) {
     return 0;
   }
 
-  if (world.rank() == 0)
-    Info::Inst()->write(
-        string("Set background scattering length density set to ") +
-        boost::lexical_cast<string>(
-            Params::Inst()->scattering.background.factor));
-
   //------------------------------------------//
   //
   // Communication of the sample
