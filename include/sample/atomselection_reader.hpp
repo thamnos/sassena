@@ -20,19 +20,19 @@ This file contains a class which constructs an atomselection from an input file.
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/list.hpp>
 
-#include "atomselection.hpp"
 #include "atoms.hpp"
+#include "atomselection.hpp"
 
-/** 
+/**
 Creates an atomselection from a file.
 */
 class AtomselectionReader {
-
-public:
-    static std::map<std::string,IAtomselection*> read_ndx(std::string filename,std::string selector, std::string expression);
-    static IAtomselection* read_pdb(std::string filename,std::string selector, std::string expression);
+ public:
+  static std::map<std::string, IAtomselection*> read_ndx(
+      std::string filename, std::string selector, std::string expression);
+  static IAtomselection* read_pdb(std::string filename, std::string selector,
+                                  std::string expression);
 };
-
 
 #endif
 

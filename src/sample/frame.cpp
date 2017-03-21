@@ -14,22 +14,21 @@ This file contains a class which defines the contents of a generic frame.
 // special library headers
 
 // other headers
+#include "math/coor3d.hpp"
 #include "sample/atoms.hpp"
 #include "sample/atomselection.hpp"
-#include "math/coor3d.hpp"
 
 using namespace std;
 
-void Frame::clear() { 
-	x.clear(); 
-	y.clear(); 
-	z.clear(); 
-	unitcell.clear();
+void Frame::clear() {
+  x.clear();
+  y.clear();
+  z.clear();
+  unitcell.clear();
 }
 
-CartesianCoor3D Frame::coord3D(size_t i) { 
-	return CartesianCoor3D(x[i],y[i],z[i]);	
+CartesianCoor3D Frame::coord3D(size_t i) {
+  return CartesianCoor3D(x[i], y[i], z[i]);
 }
 
 // end of file
-

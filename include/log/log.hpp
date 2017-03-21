@@ -1,5 +1,6 @@
 /** \file
-This file contains a set of singleton classes, which provide formatted console outputs.
+This file contains a set of singleton classes, which provide formatted console
+outputs.
 
 \author Benjamin Lindner <ben@benlabs.net>
 \version 1.3.0
@@ -17,75 +18,89 @@ This file contains a set of singleton classes, which provide formatted console o
 #include <map>
 #include <string>
 
-/** 
-Singelton class for formatted output to stdout, which should be used for information type messages.
+/**
+Singelton class for formatted output to stdout, which should be used for
+information type messages.
 */
 class Info {
-private:
-	Info() {}
-	Info(const Info&) {}
-    Info& operator=(const Info&) { return *this; }
-	
-	static size_t counter;	
-	
-	std::string prefix;
-public:
+ private:
+  Info() {}
+  Info(const Info&) {}
+  Info& operator=(const Info&) { return *this; }
 
-	static Info* Inst() { static Info instance; counter++; return &instance; }
+  static size_t counter;
 
-	void set_prefix(std::string p) { prefix = p;}
+  std::string prefix;
 
-	void write(std::string);
-	size_t calls() { return counter; }
-	~Info() {}
+ public:
+  static Info* Inst() {
+    static Info instance;
+    counter++;
+    return &instance;
+  }
+
+  void set_prefix(std::string p) { prefix = p; }
+
+  void write(std::string);
+  size_t calls() { return counter; }
+  ~Info() {}
 };
 
-/** 
-Singelton class for formatted output to stdout, which should be used for warning type messages.
+/**
+Singelton class for formatted output to stdout, which should be used for warning
+type messages.
 */
 class Warn {
-private:
-	Warn() {}
-	Warn(const Warn&) {}
-    Warn& operator=(const Warn&) { return *this; }
-	
-	static size_t counter;
-	std::string prefix;
+ private:
+  Warn() {}
+  Warn(const Warn&) {}
+  Warn& operator=(const Warn&) { return *this; }
 
-public:
+  static size_t counter;
+  std::string prefix;
 
-	static Warn* Inst() { static Warn instance; counter++; return &instance; }
+ public:
+  static Warn* Inst() {
+    static Warn instance;
+    counter++;
+    return &instance;
+  }
 
-	void set_prefix(std::string p) { prefix = p;}
+  void set_prefix(std::string p) { prefix = p; }
 
-	void write(std::string);
-	size_t calls() { return counter; }
-	~Warn() {}
+  void write(std::string);
+  size_t calls() { return counter; }
+  ~Warn() {}
 };
 
-/** 
-Singelton class for formatted output to stdout, which should be used for error type messages.
+/**
+Singelton class for formatted output to stdout, which should be used for error
+type messages.
 */
 class Err {
-private:
-	Err() {}
-	Err(const Err&) {}
-	Err& operator=(const Err&) { return *this; }
-		
-	static size_t counter;		
+ private:
+  Err() {}
+  Err(const Err&) {}
+  Err& operator=(const Err&) { return *this; }
 
-	std::string prefix;
-public:
+  static size_t counter;
 
-	static Err* Inst() { static Err instance; counter++; return &instance; }
+  std::string prefix;
 
-	void set_prefix(std::string p) { prefix = p;}
+ public:
+  static Err* Inst() {
+    static Err instance;
+    counter++;
+    return &instance;
+  }
 
-	void write(std::string);
-	size_t calls() { return counter; }
-	~Err() {}	
+  void set_prefix(std::string p) { prefix = p; }
+
+  void write(std::string);
+  size_t calls() { return counter; }
+  ~Err() {}
 };
 
-#endif 
+#endif
 
 // end of file

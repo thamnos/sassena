@@ -20,15 +20,14 @@ This file contains exceptions defines within the context of the application.
 // other headers
 
 namespace sassena {
-	/** 
-	 Signal which should be caught in the main routine to allow a clean termination.
-	*/
-    class terminate_request : public std::runtime_error {
-    public:
-        terminate_request() : std::runtime_error("Terminate requested") {}
-    };
+/**
+ Signal which should be caught in the main routine to allow a clean termination.
+*/
+class terminate_request : public std::runtime_error {
+ public:
+  terminate_request() : std::runtime_error("Terminate requested") {}
+};
 }
-
 
 #endif
 
