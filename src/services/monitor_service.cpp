@@ -15,9 +15,9 @@ progress.
 #include <boost/filesystem.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/random/uniform_int.hpp>
-#include <control.hpp>
-#include <log.hpp>
-#include <report/timer.hpp>
+#include "control.hpp"
+#include "log.hpp"
+#include "report/timer.hpp"
 
 using namespace std;
 

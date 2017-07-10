@@ -18,7 +18,7 @@ This file contains a class which constructs an atomselection from an input file.
 
 // special library headers
 #include <boost/algorithm/string.hpp>
-#include "boost/regex.hpp"
+#include <boost/regex.hpp>
 
 // other headers
 #include "control.hpp"

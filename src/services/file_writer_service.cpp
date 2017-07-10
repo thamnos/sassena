@@ -14,9 +14,9 @@ server (head node).
 
 #include <boost/filesystem.hpp>
 #include <boost/lexical_cast.hpp>
-#include <control.hpp>
-#include <log.hpp>
-#include <math/smath.hpp>
+#include "control.hpp"
+#include "log.hpp"
+#include "math/smath.hpp"
 using namespace std;
 
 void HDF5WriterService::init(size_t nf) {
