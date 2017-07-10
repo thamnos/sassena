@@ -10,7 +10,7 @@ the network.
 #ifndef MPI__WRAPPER_HPP_
 #define MPI__WRAPPER_HPP_
 
-#include "boost/mpi.hpp"
+#include <boost/mpi.hpp>
 
 namespace mpi {
 namespace wrapper {

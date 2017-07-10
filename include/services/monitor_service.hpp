@@ -27,7 +27,7 @@ progress.
 #include <boost/date_time.hpp>
 #include <boost/thread.hpp>
 
-#include <report/timer.hpp>
+#include "report/timer.hpp"
 
 // other headers
 #include "math/coor3d.hpp"

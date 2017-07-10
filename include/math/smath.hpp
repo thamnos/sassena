@@ -20,8 +20,8 @@ This file contains mathemical routines.
 #include <fftw3.h>
 
 // other headers
-#include <control.hpp>
-#include <log.hpp>
+#include "control.hpp"
+#include "log.hpp"
 
 namespace smath {
 
