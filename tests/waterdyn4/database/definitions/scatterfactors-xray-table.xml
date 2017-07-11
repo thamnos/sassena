@@ -2,14 +2,10 @@
 	<!-- ft 2 , form:                                                                   -->
 	<!-- a1, b1, a2, b2, a3, b3, a4, b4, c                                              -->
     <!--                                                                                -->
-	<!-- neutral atom values from:                                                      -->
-	<!-- http://it.iucr.org/Cb/ch4o3v0001/sec4o3o2/?#bb93                               -->
-	<!-- International Tables for Crystallography (2006). Vol. C, ch. 4.3, p. 262       -->
-	<!-- ionic atom values from:                                                        -->
-	<!-- Acta Cryst. (1998). A54, 481-485                                               -->
-	<!-- Electron Scattering Factors of Ions and their Parameterization , Peng          -->
+	<!-- values from:                                                      -->
+	<!-- International Tables for Crystallography (2006). Vol. C, ch. 6.1, p. 572-4       -->
 
-	<!-- Elastic atomic scattering factors of electrons for neutral atoms and s up to 6.0 A?1 -->
+	<!-- Elastic atomic scattering factors of x-rays for neutral atoms and ions and s up to 6.0 A?1 -->
 
 	<scatterfactors>
 
@@ -27,19 +23,19 @@
 			<param>0.001305	</param>
 		</element> 
 		<element>
-		<!-- copy & paste from hydrogen -->
-			<name>deuterium</name> <!-- wrong data  -->
-		 	<type>2</type>
-			<param> 	0.0088	</param>
-			<param>0.1152	</param>
-			<param>0.0449	</param>
-			<param>1.0867	</param>
-			<param>0.1481	</param>
-			<param>4.9755	</param>
-			<param>0.2356	</param>
-			<param>16.5591	</param>
-			<param>0.0914	</param>
-		</element> 
+			<name>deuterium 	</name>
+			<type>2</type>
+			<param> 0.489918</param>
+			<param> 20.6593</param>
+			<param> 0.262003</param>
+			<param> 7.74039</param>
+			<param> 0.196767</param>
+			<param> 49.5519</param>
+			<param> 0.049879</param>
+			<param> 2.20159</param>
+			<param> 0.001305 </param>
+		</element>
+
 
 		<element>
 			<name>helium</name>
