@@ -44,7 +44,7 @@ void Database::read_xml(std::string filename) {
   XMLInterface xmli(filename);
 
   xmli.dump(config);
- Info::Inst()->write("Reading database from file: " + filename);
+  Info::Inst()->write("Reading database from file: " + filename);
 
   // now read the database
 
