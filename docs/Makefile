@@ -6,6 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
+GH_PAGES_SOURCES = docs/*.rst docs/conf.py docs/Makefile
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
@@ -214,3 +215,17 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+.PHONY: gh-pages
+gh-pages:
+	git checkout gh-pages
+	rm -rf ../_sources ../_static
+	git checkout using_sphinx_documentation $(GH_PAGES_SOURCES) # replace with master
+	git reset HEAD
+	make html
+	mv -fv build/html/* ./
+	rm -rf $(GH_PAGES_SOURCES) build
+	git add -A
+	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages
+	git checkout master
+
