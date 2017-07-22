@@ -18,7 +18,7 @@
   </database>
 
   <scattering>
-    <type>all</type>
+    <type>self</type>
     <dsp>
       <type>autocorrelate</type>
       <method>fftw</method>
